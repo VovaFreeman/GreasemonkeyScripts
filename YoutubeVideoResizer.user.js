@@ -2,9 +2,8 @@
 // @name        YoutubeVideoResizer
 // @namespace   myDVPC
 // @include     https://www.youtube.com/watch?*
-// @version     0.21
+// @version     0.22
 // @grant GM_registerMenuCommand
-// @grant GM_log
 // @run-at document-end
 
 // ==/UserScript==
@@ -22,11 +21,17 @@ function init(){
   GM_registerMenuCommand("Resize video",changeStyle);
 }
 
-function addToStorage(name,value){
-  storageOldValues[storageOldValues.length]=eval(name);
-  storageNewValues[storageNewValues.length]=value;
-  storageNames[storageNames.length]=name;
+function addToStorage(){
+  for(var i=0;i<arguments.length;i++){
+    //start from 0
+    if ((i%2)==0){
+      storageNames[storageNames.length]=arguments[i];      
+      storageOldValues[storageOldValues.length]=eval(arguments[i]);
+    } else {
+      storageNewValues[storageNewValues.length]=arguments[i];
+    }
   }
+}
 
 //On the button click
 function changeStyle(){
@@ -38,8 +43,7 @@ function changeStyle(){
        } else {
          eval(storageNames[i]+"=\""+storageNewValues[i]+"\"");
        }       
-     }
-    
+     }    
     //Flip the flag after operation
     if(changedValues){
       changedValues=false;
@@ -49,17 +53,15 @@ function changeStyle(){
   }
 }
 
-//Styles to be changed
-function valuesToChange(){
-	addToStorage("player.style.position","fixed");
-	addToStorage("player.style.width","99%");
-	addToStorage("player.style.left","0px");
-	addToStorage("player.style.marginLeft","0px");
-	addToStorage("player.style.height","50%");
-	addToStorage("video.style.width","100%");
-	addToStorage("video.style.height","100%");
-  };
-
 //On the page load
 init();
-valuesToChange();
+//Styles to be changed
+addToStorage(
+  "player.style.position","fixed",
+  "player.style.width","99%",
+  "player.style.left","0px",
+  "player.style.marginLeft","0px",
+  "player.style.height","50%",
+  "video.style.width","100%",
+  "video.style.height","100%"
+);
