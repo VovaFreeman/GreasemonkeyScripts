@@ -2,7 +2,7 @@
 // @name        YoutubeVideoResizer
 // @namespace   myDVPC
 // @include     https://www.youtube.com/watch?*
-// @version     0.22
+// @version     0.3
 // @grant GM_registerMenuCommand
 // @run-at document-end
 
@@ -16,9 +16,20 @@ function init(){
   storageNames = [];
   storageNewValues = [];  
   changedValues = false;
+  commentsOn = false;
   
-  //The button
+  //The buttons
   GM_registerMenuCommand("Resize video",changeStyle);
+  GM_registerMenuCommand("Toggle comments",function(){
+                         var comments = document.getElementById("watch-discussion");
+                           if(commentsOn){
+                             comments.style.display="unset";
+                             commentsOn = false;
+                           } else {
+                             comments.style.display="none";
+                             commentsOn = true;   
+                           }
+                         });
 }
 
 function addToStorage(){
