@@ -2,7 +2,7 @@
 // @name        YoutubeVideoResizer
 // @namespace   myDVPC
 // @include     https://www.youtube.com/watch?*
-// @version     0.3
+// @version     0.31
 // @grant GM_registerMenuCommand
 // @run-at document-end
 
@@ -23,10 +23,10 @@ function init(){
   GM_registerMenuCommand("Toggle comments",function(){
                          var comments = document.getElementById("watch-discussion");
                            if(commentsOn){
-                             comments.style.display="unset";
+                             comments.style.display="none";
                              commentsOn = false;
                            } else {
-                             comments.style.display="none";
+                             comments.style.display="unset";
                              commentsOn = true;   
                            }
                          });
