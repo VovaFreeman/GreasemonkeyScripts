@@ -44,6 +44,30 @@ function addToStorage(){
   }
 }
 
+//Adding button on page
+function footerButton(){
+  if (!(document.getElementById("videoResizer"))){
+    
+    var footerDiv = document.createElement("div");
+    var a = document.createElement("a");
+    
+    footerDiv.id = "videoResizer";
+    footerDiv.style.position = "fixed";
+    footerDiv.style.zIndex = "5";
+    footerDiv.style.bottom = "5px";
+    footerDiv.style.borderWidth = "1px";
+    footerDiv.style.borderStyle = "solid";
+    footerDiv.style.color = "black";
+    
+    a.href = "#";
+    a.onClick = changeStyle;
+    a.innerHTML = "Resize video";
+    
+    footerDiv.appendChild(a);
+    document.body.appendChild(footerDiv);
+  }
+}
+
 //On the button click
 function changeStyle(){
   //Save old & new values
@@ -62,6 +86,7 @@ function changeStyle(){
       changedValues=true;
     }
   }
+  footerButton();
 }
 
 //On the page load
