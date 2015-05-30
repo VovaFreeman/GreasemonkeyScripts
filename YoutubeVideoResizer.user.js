@@ -11,6 +11,7 @@
 function init(){
   player = document.getElementById("player-api");
   video = document.getElementsByClassName("video-stream html5-main-video")[0];
+  container = document.getElementsByClassName("html5-video-container")[0];
   
   storageOldValues = [];
   storageNames = [];
@@ -96,5 +97,6 @@ addToStorage(
   "player.style.marginLeft","0px",
   "player.style.height","50%",
   "video.style.width","100%",
-  "video.style.height","100%"
+  "video.style.height","100%",
+  "container.style.position","unset"
 );
