@@ -98,5 +98,7 @@ addToStorage(
   "player.style.height","50%",
   "video.style.width","100%",
   "video.style.height","100%",
-  "container.style.position","unset"
+  "container.style.position","unset",
+  "container.style.width","100%",
+  "container.style.height","100%"
 );
