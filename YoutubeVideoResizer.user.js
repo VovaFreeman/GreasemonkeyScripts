@@ -2,7 +2,7 @@
 // @name        YoutubeVideoResizer
 // @namespace   myDVPC
 // @include     https://www.youtube.com/watch?*
-// @version     0.32
+// @version     0.33
 // @grant GM_registerMenuCommand
 // @run-at document-end
 
